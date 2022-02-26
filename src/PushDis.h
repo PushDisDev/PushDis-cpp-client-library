@@ -3,7 +3,12 @@
 
 #include <Arduino.h>
 #include <WiFiClientSecure.h>
-#include <ESP8266HTTPClient.h>
+
+#ifndef ESP32
+	#include <ESP8266HTTPClient.h>
+#else
+	#include <HTTPClient.h>
+#endif 
 
 struct DisplayParameter {
   String name;
